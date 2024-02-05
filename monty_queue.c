@@ -5,7 +5,7 @@
  * @n: new value to be added
  * @hdl: ptr to the head of the queue
  */
-void _addqueue(stack_t **headdl, int n)
+void _addqueue(stack_t **headl, int n)
 {
 	stack_t *new_node, *tam;
 
@@ -24,7 +24,7 @@ void _addqueue(stack_t **headdl, int n)
 	}
 	if (!tam)
 	{
-		*headdl = new_node;
+		*headl = new_node;
 		new_node->prev = NULL;
 	}
 	else

@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * _execute - executes the opcode
+ * _execute - this function executes the opcode
  * @hdl: head linked list - (stack)
  * @linum: line_counter
  * @file: poiner to monty file
@@ -33,7 +33,7 @@ int _execute(char *cont, stack_t **headl, unsigned int linum, FILE *file)
 	while (opst[i].opcode && op)
 	{
 		if (strcmp(op, opst[i].opcode) == 0)
-		{	opst[i].f(hdl, linum);
+		{	opst[i].f(headl, linum);
 			return (0);
 		}
 		i++;
@@ -42,7 +42,7 @@ int _execute(char *cont, stack_t **headl, unsigned int linum, FILE *file)
 	{ fprintf(stderr, "L%d: unknown instruction %s\n", linum, op);
 		fclose(file);
 		free(cont);
-		_free_stack(*hdl);
+		_free_stack(*headl);
 		exit(EXIT_FAILURE); }
 	return (1);
 }
